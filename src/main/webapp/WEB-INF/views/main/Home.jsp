@@ -55,8 +55,15 @@ html, body {
 	background-color: #737373;
 	
 }
+#noWrap {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: 80px;
+	
+}
 #content-container {
-	width: 800px;
+	width: 100%;
 	height: 800px;
 }
 
@@ -81,8 +88,11 @@ html, body {
 	height: 100%;
 	background-color: #737373; 
 }
-
-
+#h9Wrap {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
 #h1Con {
 	display: table-cell;
 	text-align: center;
@@ -92,7 +102,7 @@ html, body {
 }
 
 
-#menuWrap, #h2Wrap, #h3Wrap, #h4Wrap, #h5Wrap, #h6Wrap, #h7Wrap, #h8Wrap {
+#menuWrap, #h2Wrap, #h3Wrap, #h4Wrap, #h5Wrap, #h6Wrap, #h7Wrap, #h8Wrap, #h9Wrap {
 	display: none;
 }
 
@@ -103,14 +113,20 @@ html, body {
 	background-color: #262626;
 }
 
+#header-block2 > #h1Wrap:hover, #header-block5 > #h1Wrap:hover {
+	cursor: pointer;
+}
+
 #menuWrap > #h2Wrap:hover, #menuWrap > #h3Wrap:hover,
  #menuWrap > #h4Wrap:hover, #menuWrap > #h5Wrap:hover {
 	background-color: #262626;
+	cursor: pointer;
  }
  
 #menuWrap > #h6Wrap:hover, #menuWrap > #h7Wrap:hover, 
 #menuWrap > #h8Wrap:hover {
 	background-color: #262626;
+	cursor: pointer;
 }
 
 
@@ -121,36 +137,34 @@ html, body {
 <script type="text/javascript">
 $(document).ready(function() {
 	
-	var menuTemp = 0;
-	var menuTemp2 = 0;
 	
-	$("#header-block3 #h1Wrap").on("click", function() {
-		if(menuTemp == 0) {
+	$("#header-block3 #h1Wrap").on("mouseover", function() {
 			$("#menu3 #menuWrap").css("display", "inline-block");
 			$("#h2Wrap").css("display", "table");
 			$("#h3Wrap").css("display", "table");
 			$("#h4Wrap").css("display", "table");
 			$("#h5Wrap").css("display", "table");
-			menuTemp = 1;
-		}else {
-			$("#menu3 #menuWrap").css("display", "none");
-			menuTemp = 0;	
-		}
+			
 	});
-	$("#header-block4 #h1Wrap").on("click", function() {
-		if(menuTemp2 == 0) {
+	
+ 	$("#header-block2, #header-block4, #header-block5, #menu #menu2, #menu #menu4, #content-container").on("mouseover", function() {
+			$("#menu3 #menuWrap").css("display", "none");
+	});
+	
+	$("#header-block4 #h1Wrap").on("mouseover", function() {
 			$("#menu4 #menuWrap").css("display", "inline-block");
 			$("#h6Wrap").css("display", "table");
 			$("#h7Wrap").css("display", "table");
 			$("#h8Wrap").css("display", "table");
-			menuTemp2 = 1;				
-		}else {
-			$("#menu4 #menuWrap").css("display", "none");
-			menuTemp2 = 0;
-		}
 	});
 	
+	$("#header-block2, #header-block3, #header-block5, #menu #menu3, #menu #menu5, #menu4 #noWrap, #content-container").on("mouseover", function() {
+			$("#menu4 #menuWrap").css("display", "none");
+	});
 	
+	$("#menu3 #h2Wrap").on("click", function() {
+		location.href = "VanillaERP"
+	})
 	
 	
 });//document ready end
@@ -220,6 +234,11 @@ $(document).ready(function() {
 			<div id="menuWrap">
 				<div id="h8Wrap">
 					<div id="h1Con">취미생활</div>
+				</div>
+			</div>
+			<div id="noWrap">
+				<div id="h9Wrap">
+					<div id="h1Con"></div>
 				</div>
 			</div>
 		</div>

@@ -22,6 +22,13 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/VanillaERP")
+	public ModelAndView VanillaERP(ModelAndView mav) {
+		
+		mav.setViewName("main/VanillaERP");
+		return mav;
+	}
+	
 	
 	
 }
