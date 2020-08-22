@@ -13,6 +13,7 @@ html, body {
 }
 
 #content-holder {
+	display: inline-block;
 	background-color: #F2F2F2;
 	width: 100%;
 	height: 100%;
@@ -131,8 +132,6 @@ html, body {
 
 
 </style>
-<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script type="text/javascript" src="resources/script/jquery/jquery.slimscroll.js"></script> -->
 <script type="text/javascript" src="resources/script/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
