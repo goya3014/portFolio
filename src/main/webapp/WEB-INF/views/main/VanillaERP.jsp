@@ -13,7 +13,6 @@ html, body {
 
 #content-holder {
 	display: inline-block;
-	background-color: #F2F2F2;
 	width: 100%;
 	height: 100%;
 }
@@ -56,7 +55,25 @@ html, body {
 	vertical-align: middle;
 }
 
+#content {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: 100%;
+}
 
+#contentCon {
+	display: inline-block;
+	font-size: 50pt;
+	text-align: middle; 
+	animation-duration: 0.3s;
+	animation-iteration-count: infinite;
+	color: black;
+}
+
+#contentTyping {
+	display: none;
+}
 </style>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
@@ -67,9 +84,32 @@ $(document).ready(function() {
 		
 	});
 	
+	var typing = false;
+	var typingIdx = 0;
+	var typingTxt = $("#contentTyping").text();
+	
+	typingTxt = typingTxt.split("");
+	
+	
+	if(typing == false) {
+		typing = true;
+		
+		var tyInt = setInterval(function typing() {
+			if(typingIdx < typingTxt.length) {
+				$("#contentCon").append(typingTxt[typingIdx]);
+				typingIdx++;
+				
+			}else {
+				clearInterval(tyInt);
+			}
+		}, 100);
+	}
+	
 	
 	
 });// document ready end
+
+
 </script>
 </head>
 <body>
@@ -83,6 +123,10 @@ $(document).ready(function() {
 			</div>
 			</div>
 		</div>
+	</div>
+	<div id="content">
+				<div id="contentTyping">개발자 이윤미의 포트폴리오입니다.</div>
+				<div id="contentCon"></div>
 	</div>
 </div>
 </body>

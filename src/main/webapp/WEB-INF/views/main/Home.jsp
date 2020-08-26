@@ -10,13 +10,16 @@
 html, body {
 	font-size: 0pt;
 	margin: 0px;
+	top: 0px;
+	left: 0px;
 }
 
 #content-holder {
-	display: inline-block;
+	position: absolute;
 	background-color: #F2F2F2;
 	width: 100%;
 	height: 100%;
+	z-index: 20;
 }
 
 #content-header {
@@ -62,10 +65,6 @@ html, body {
 	width: 100%;
 	height: 80px;
 	
-}
-#content-container {
-	width: 100%;
-	height: 800px;
 }
 
 #logo {
@@ -130,8 +129,41 @@ html, body {
 	cursor: pointer;
 }
 
+#intro {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 100;
+}
+
+#typingTxt {
+	display: none;
+}
+
+
+#typing {
+	display: inline-block;
+	vertical-align: top;
+	height: 90px;
+	position: absolute;
+	top: calc(50% - 45px);
+	left: calc(50% - 531px);
+	font-size: 50pt;
+	color: white;
+	animation-name: cursor;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	
+}
+@keyframes cursor{ 
+  0%{border-right: 1px solid #fff} 
+  50%{border-right: 1px solid #000} 
+  100%{border-right: 1px solid #fff} 
+}
 
 </style>
+<script type="text/javascript" src="resources/script/typed/typed.js"></script>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -166,31 +198,59 @@ $(document).ready(function() {
 	})
 	
 	
+	var typing = false;
+	var typingIdx = 0;
+	var typingTxt = $("#typingTxt").text();
+	
+	typingTxt = typingTxt.split("");
+	
+	
+	if(typing == false) {
+		typing = true;
+		
+		var tyInt = setInterval(function typing() {
+			if(typingIdx < typingTxt.length) {
+				$("#typing").append(typingTxt[typingIdx]);
+				typingIdx++;
+				
+			}else {
+				clearInterval(tyInt);
+				$("#intro").fadeOut(3000);
+			}
+		}, 100);
+	}
+	
+	
+	
 });//document ready end
 </script>
 </head>
 <body>
+<div id="intro">
+	<div id="typingTxt">개발자 이윤미의 포트폴리오입니다.</div>
+	<div id="typing"></div>
+</div>
 <div id="content-holder">
 	<div id="content-header">
 			<div id="logo"></div>
 		<div id="header-block2">
 			<div id="h1Wrap">
-				<div id="h1Con">소개</div>
+				<div id="h1Con">ABOUT</div>
 			</div>
 		</div>
 		<div id="header-block3">
 			<div id="h1Wrap">
-				<div id="h1Con">작업</div>
+				<div id="h1Con">SKILLS</div>
 			</div>
 		</div>
 		<div id="header-block4">
 			<div id="h1Wrap">
-				<div id="h1Con">활동</div>
+				<div id="h1Con">WORK</div>
 			</div>
 		</div>
 		<div id="header-block5">
 			<div id="h1Wrap">
-				<div id="h1Con">자격증</div>
+				<div id="h1Con">CONTACT</div>
 			</div>
 		</div>
 	</div>
@@ -243,9 +303,6 @@ $(document).ready(function() {
 		</div>
 		<div id="menu5"></div>
 	</div>
-	<div id="content-container">
-	</div>
-
 </div>
 </body>
 </html>
