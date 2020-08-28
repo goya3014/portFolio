@@ -14,16 +14,6 @@ html, body {
 	left: 0px;
 }
 
-#content-holder {
-	display: inline-block;
-	vertical-align: top;
-	position: absolute;
-	background-color: #F2F2F2;
-	width: 100%;
-	height: 100%;
-	z-index: 20;
-}
-
 #content-header {
 	display: inline-block;
 	vertical-align: top;
@@ -74,7 +64,11 @@ html, body {
 	width: 100%;
 	height: 100%;
 	background-color: black;
+	background-image: url("resources/images/coding-background.jpg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 	z-index: 100;
+	display: none;
 }
 
 #typingTxt {
@@ -110,13 +104,77 @@ html, body {
 }
 
 #introduction {
-	display: inline-block;
-	vertical-align: top;
-	font-size: 20pt;
-	color: black;
-	z-index: 80;
+	display: flex;
+	width: 100%;
+	height: 400px;
 }
 
+#about-left {
+	display: flex;
+	vertical-align: top;
+	width: 609px;
+	height: 400px;
+	align-items: center;
+	justify-content: center;
+}
+
+#about-right {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: 400px;
+}
+
+#about-logo {
+	font-size: 27pt;
+	color: black;
+	font-weight: bold;
+}
+
+#about-title {
+	display: inline-block;
+	vertical-align: top;
+	width: 344px;
+	height: 50px;
+	font-size: 22pt;
+	color: black;
+	font-weight: bold;
+	margin-left: 30px;
+	margin-top: 43px;
+	margin-bottom: 30px;
+}
+
+#about-content {
+	display: inline-block;
+	vertical-align: top;
+	width: 740px;
+	font-size: 16pt;
+	color: black;
+	white-space: pre-wrap;
+	margin-left: 30px;
+}
+
+#skill-content {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: 800px;
+	background-color: #D9D9D9;
+}
+
+#languageWrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#language {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 22pt;
+	color: black;
+	font-weight: bold;
+}
 </style>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
@@ -155,7 +213,6 @@ $(document).ready(function() {
 	<div id="typingTxt">개발자 이윤미의 포트폴리오입니다.</div>
 	<div id="typing"></div>
 </div>
-<div id="content-holder">
 	<div id="content-header">
 			<div id="logo"></div>
 		<div id="header-block2">
@@ -181,9 +238,23 @@ $(document).ready(function() {
 	</div>
 	<div id="main-content">
 		<div id="introduction">
-		안녕하세요. 멈추지 않는 도전정신으로 고민하고 생각하며 공부하는 호기심쟁이 이윤미입니다.
+			<div id="about-left">
+				<div id="about-logo">ABOUT</div>
+			</div>
+			<div id="about-right">
+				<div id="about-title">끊임없이 발전하는 개발자</div>
+				<div id="about-content">저는 전문대에서는 호텔경영을 전공하였고 편입을 거쳐 들어간 대학에서는 독일어를 배웠습니다. 또한, 구디 아카데미에서 개발자 과정을 수료하였습니다. 
+
+이 모든 배움의 시작은 배우고 싶은 열망과 알아가고 싶은 호기심이 있었기 때문입니다. 
+				
+앞으로도 이런 열망과 호기심을 바탕으로 끝없이 배워나가는 개발자가 되겠습니다.</div>
+			</div>
 		</div>
 	</div>
-</div>
+	<div id="skill-content">
+		<div id="languageWrap">
+			<div id="language">Language</div>
+		</div>
+	</div>
 </body>
 </html>
