@@ -175,6 +175,32 @@ html, body {
 	color: black;
 	font-weight: bold;
 }
+
+#langLogoWrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#langLogoWrap div {
+	background-color: black;
+	display: inline-block;
+	vertical-align: top;
+	width: 125px;
+	height: 125px;
+}
+
+#java {
+	background-image: url("resources/images/JAVA.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+
+#javascript {
+	background-image: url("resources/images/javaScript.jpg");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
 </style>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
@@ -253,7 +279,15 @@ $(document).ready(function() {
 	</div>
 	<div id="skill-content">
 		<div id="languageWrap">
-			<div id="language">Language</div>
+			<div id="language">Languages</div>
+		</div>
+		<div id="langLogoWrap">
+			<div id="java"></div>
+			<div id="javascript"></div>
+			<div id="html"></div>
+			<div id="css"></div>
+			<div id="xml"></div>
+			<div id="sql"></div>
 		</div>
 	</div>
 </body>
