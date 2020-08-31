@@ -107,6 +107,8 @@ html, body {
 	display: flex;
 	width: 100%;
 	height: 400px;
+	margin-top: 60px;
+	margin-bottom: 60px;
 }
 
 #about-left {
@@ -140,7 +142,7 @@ html, body {
 	color: black;
 	font-weight: bold;
 	margin-left: 30px;
-	margin-top: 43px;
+	margin-top: 23px;
 	margin-bottom: 30px;
 }
 
@@ -158,36 +160,48 @@ html, body {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
-	height: 800px;
+	height: 1326px;
 	background-color: #D9D9D9;
 }
 
-#languageWrap {
+#languageWrap, #skillWrap, #frameworkWrap, #databaseWrap {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-top: 70px;
+	margin-bottom: 80px;
 }
 
-#language {
+#language, #skill, #framework, #database {
 	display: inline-block;
 	vertical-align: top;
 	font-size: 22pt;
 	color: black;
 	font-weight: bold;
+
 }
 
-#langLogoWrap {
+
+#langLogoWrap, #skillLogoWrap, #frameworkLogoWrap, #databaseLogoWrap {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
 }
 
-#langLogoWrap div {
-	background-color: black;
-	display: inline-block;
+#langLogoWrap div, #skillLogoWrap div, #frameworkLogoWrap div, #databaseLogoWrap div {
+	display: flex;
 	vertical-align: top;
 	width: 125px;
 	height: 125px;
+	border-radius: 45px;
+	background-color: white;
+	align-items: center;
+	justify-content: center;
+}
+
+#langLogoWrap div:hover, #skillLogoWrap div:hover, #frameworkLogoWrap div:hover, #databaseLogoWrap div:hover {
+	background-image:none;
+	background-color: #262626;
 }
 
 #java {
@@ -196,11 +210,74 @@ html, body {
 	background-size: 125px 125px;
 }
 
+#javaBaby {
+	font-size: 14pt;
+	font-weight: bold;
+	color: white;
+}
+
 #javascript {
-	background-image: url("resources/images/javaScript.jpg");
+	background-image: url("resources/images/javascript2.png");
 	background-repeat: no-repeat;
 	background-size: 125px 125px;
 }
+#html {
+	background-image: url("resources/images/html.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#css {
+	background-image: url("resources/images/CSS.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#xml {
+	background-image: url("resources/images/XML.jpg");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#sql {
+	background-image: url("resources/images/SQL.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#jquery {
+	background-image: url("resources/images/jQuery.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#ajax {
+	background-image: url("resources/images/ajax.jpg");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#json {
+	background-image: url("resources/images/JSON.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#jsp {
+	background-image: url("resources/images/JSP.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#spring {
+	background-image: url("resources/images/spring2.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#mybatis {
+	background-image: url("resources/images/myBatis.jpg");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+#oracle {
+	background-image: url("resources/images/Oracle.png");
+	background-repeat: no-repeat;
+	background-size: 125px 125px;
+}
+
+
 </style>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
@@ -228,6 +305,15 @@ $(document).ready(function() {
 			}
 		}, 100);
 	}
+	
+	$("#javaBaby").css("display", "none");
+	
+	$("#java").on("mouseover", function() {
+		$("#javaBaby").css("display", "");
+	})
+	$("#java").on("mouseout", function() {
+		$("#javaBaby").css("display", "none");
+	})
 	
 	
 	
@@ -282,12 +368,36 @@ $(document).ready(function() {
 			<div id="language">Languages</div>
 		</div>
 		<div id="langLogoWrap">
-			<div id="java"></div>
+			<div id="java">
+				<div id="javaBaby">intermediate</div>
+			</div>
 			<div id="javascript"></div>
 			<div id="html"></div>
 			<div id="css"></div>
 			<div id="xml"></div>
 			<div id="sql"></div>
+		</div>
+			<div id="skillWrap">
+			<div id="skill">Skills</div>
+		</div>
+		<div id="skillLogoWrap">
+			<div id="jquery"></div>
+			<div id="ajax"></div>
+			<div id="json"></div>
+			<div id="jsp"></div>
+		</div>
+		<div id="frameworkWrap">
+			<div id="framework">Framework</div>
+		</div>
+		<div id="frameworkLogoWrap">
+			<div id="spring"></div>
+			<div id="mybatis"></div>
+		</div>
+		<div id="databaseWrap">
+			<div id="database">Database</div>
+		</div>
+		<div id="databaseLogoWrap">
+			<div id="oracle"></div>
 		</div>
 	</div>
 </body>
