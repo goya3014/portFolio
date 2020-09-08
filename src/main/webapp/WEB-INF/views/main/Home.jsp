@@ -19,7 +19,6 @@ html, body {
 	vertical-align: top;
 	width: 100%;
 	height: 80px;
-	
 }
 
 #logo {
@@ -75,7 +74,6 @@ html, body {
 	display: none;
 }
 
-
 #typing {
 	display: inline-block;
 	vertical-align: top;
@@ -125,6 +123,46 @@ html, body {
 	vertical-align: top;
 	width: 100%;
 	height: 400px;
+}
+
+#work {
+	display: flex;
+	width: 100%;
+	height: 520px;
+	background-color: yellow;
+	align-items: center;
+	justify-content: center;
+}
+
+#work-one {
+	display: flex;
+	width: 80%;
+	height: 450px;
+	background-color: red;
+}
+
+#work-one-left {
+	display: flex;
+	width: 45%;
+	height: 100%;
+	background-color: green;
+	align-items: center;
+	justify-content: center;
+}
+#work-one-right {
+	display: flex;
+	width: 55%;
+	height: 100%;
+	background-color: black;
+}
+
+#work-one-title {
+	display: flex;
+	width: 420px;
+	height: 350px;
+	background-image: url("resources/images/adtnal_duty1.png");
+	background-repeat: no-repeat;
+	background-size: 420px 350px;
 }
 
 #about-logo {
@@ -199,9 +237,10 @@ html, body {
 	justify-content: center;
 }
 
-#langLogoWrap div:hover, #skillLogoWrap div:hover, #frameworkLogoWrap div:hover, #databaseLogoWrap div:hover {
+#langLogoWrap div:hover, #skillLogoWrap div:hover {
 	background-image:none;
 	background-color: #262626;
+	cursor: pointer;
 }
 
 #java {
@@ -210,7 +249,8 @@ html, body {
 	background-size: 125px 125px;
 }
 
-#javaBaby {
+#javaBaby, #javascriptBaby, #htmlBaby, #cssBaby, #xmlBaby, #sqlBaby, #jqueryBaby,
+#ajaxBaby, #jsonBaby, #jspBaby {
 	font-size: 14pt;
 	font-weight: bold;
 	color: white;
@@ -277,7 +317,10 @@ html, body {
 	background-size: 125px 125px;
 }
 
-
+.menuFixed {
+	position: fixed;
+	top: 0px;
+}
 </style>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
@@ -307,15 +350,116 @@ $(document).ready(function() {
 	}
 	
 	$("#javaBaby").css("display", "none");
+	$("#javascriptBaby").css("display", "none");
+	$("#htmlBaby").css("display", "none");
+	$("#cssBaby").css("display", "none");
+	$("#xmlBaby").css("display", "none");
+	$("#sqlBaby").css("display", "none");
+	$("#jqueryBaby").css("display", "none");
+	$("#ajaxBaby").css("display", "none");
+	$("#jsonBaby").css("display", "none");
+	$("#jspBaby").css("display", "none");
 	
 	$("#java").on("mouseover", function() {
 		$("#javaBaby").css("display", "");
-	})
+	});
 	$("#java").on("mouseout", function() {
 		$("#javaBaby").css("display", "none");
-	})
+	});
+	$("#javascript").on("mouseover", function() {
+		$("#javascriptBaby").css("display", "");
+	});
+	$("#javascript").on("mouseout", function() {
+		$("#javascriptBaby").css("display", "none");
+	});
+	$("#html").on("mouseover", function() {
+		$("#htmlBaby").css("display", "");
+	});
+	$("#html").on("mouseout", function() {
+		$("#htmlBaby").css("display", "none");
+	});
+	$("#css").on("mouseover", function() {
+		$("#cssBaby").css("display", "");
+	});
+	$("#css").on("mouseout", function() {
+		$("#cssBaby").css("display", "none");
+	});
+	$("#xml").on("mouseover", function() {
+		$("#xmlBaby").css("display", "");
+	});
+	$("#xml").on("mouseout", function() {
+		$("#xmlBaby").css("display", "none");
+	});
+	$("#sql").on("mouseover", function() {
+		$("#sqlBaby").css("display", "");
+	});
+	$("#sql").on("mouseout", function() {
+		$("#sqlBaby").css("display", "none");
+	});
+	$("#jquery").on("mouseover", function() {
+		$("#jqueryBaby").css("display", "");
+	});
+	$("#jquery").on("mouseout", function() {
+		$("#jqueryBaby").css("display", "none");
+	});
+	$("#ajax").on("mouseover", function() {
+		$("#ajaxBaby").css("display", "");
+	});
+	$("#ajax").on("mouseout", function() {
+		$("#ajaxBaby").css("display", "none");
+	});
+	$("#json").on("mouseover", function() {
+		$("#jsonBaby").css("display", "");
+	});
+	$("#json").on("mouseout", function() {
+		$("#jsonBaby").css("display", "none");
+	});
+	$("#jsp").on("mouseover", function() {
+		$("#jspBaby").css("display", "");
+	});
+	$("#jsp").on("mouseout", function() {
+		$("#jspBaby").css("display", "none");
+	});
 	
 	
+	
+	var location = document.querySelector("#skill-content").offsetTop;
+	var menuLocation = document.querySelector("#content-header").offsetTop;
+	var menuHeight = document.querySelector("#content-header").offsetHeight;
+	
+	$("#header-block2").on("click", function() {
+		
+		window.scrollTo({
+			top: menuLocation,
+			behavior: 'smooth'
+		});
+	});
+	
+	$("#header-block3").on("click", function() {
+		
+		window.scrollTo({
+			top: location - (menuHeight * 2),
+			behavior: 'smooth'
+		});
+	});
+
+	$("#header-block4").on("click", function() {
+		$("#introduction").css("display", "none");
+		$("#skill-content").css("display", "none");
+		
+	});
+	
+	var menuOffset = $("#content-header").offset();
+	
+	$(window).scroll(function() {
+		
+		if($(document).scrollTop() > menuOffset.top) {
+			$("#content-header").addClass('menuFixed');
+		}else {
+			$("#content-header").removeClass('menuFixed');
+		}
+		
+	});
 	
 });//document ready end
 </script>
@@ -362,6 +506,14 @@ $(document).ready(function() {
 앞으로도 이런 열망과 호기심을 바탕으로 끝없이 배워나가는 개발자가 되겠습니다.</div>
 			</div>
 		</div>
+		<div id="work">
+			<div id="work-one">
+				<div id="work-one-left">
+					<div id="work-one-title"></div>
+				</div>
+				<div id="work-one-right"></div>
+			</div>
+		</div>
 	</div>
 	<div id="skill-content">
 		<div id="languageWrap">
@@ -371,20 +523,38 @@ $(document).ready(function() {
 			<div id="java">
 				<div id="javaBaby">intermediate</div>
 			</div>
-			<div id="javascript"></div>
-			<div id="html"></div>
-			<div id="css"></div>
-			<div id="xml"></div>
-			<div id="sql"></div>
+			<div id="javascript">
+				<div id="javascriptBaby">intermediate</div>
+			</div>
+			<div id="html">
+				<div id="htmlBaby">intermediate</div>
+			</div>
+			<div id="css">
+				<div id="cssBaby">intermediate</div>
+			</div>
+			<div id="xml">
+				<div id="xmlBaby">intermediate</div>
+			</div>
+			<div id="sql">
+				<div id="sqlBaby">intermediate</div>
+			</div>
 		</div>
 			<div id="skillWrap">
 			<div id="skill">Skills</div>
 		</div>
 		<div id="skillLogoWrap">
-			<div id="jquery"></div>
-			<div id="ajax"></div>
-			<div id="json"></div>
-			<div id="jsp"></div>
+			<div id="jquery">
+				<div id="jqueryBaby">intermediate</div>
+			</div>
+			<div id="ajax">
+				<div id="ajaxBaby">intermediate</div>
+			</div>
+			<div id="json">
+				<div id="jsonBaby">basic</div>
+			</div>
+			<div id="jsp">
+				<div id="jspBaby">intermediate</div>
+			</div>
 		</div>
 		<div id="frameworkWrap">
 			<div id="framework">Framework</div>
